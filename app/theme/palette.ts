@@ -37,6 +37,8 @@ export const palette = {
   brownSugar: '#e2a865',
   brightLavender: '#c396d8',
   niceBlue: '#0A81AB',
+  onyx: '#121212',
+  night: '#070707',
 }
 
 export type Palette = typeof palette

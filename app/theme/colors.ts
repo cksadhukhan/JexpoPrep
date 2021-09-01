@@ -28,5 +28,7 @@ export interface Colors {
   tuftsBlue: string
   brownSugar: string
   brightLavender: string
+  pipe: string
+  headingText: string
 }
 export type ColorTypes = keyof Colors

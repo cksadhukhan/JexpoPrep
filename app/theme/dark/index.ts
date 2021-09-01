@@ -8,14 +8,14 @@ import {palette} from '../palette'
  * context even though the theme is changed. Use color names for colors that are
  * independent of theme.
  */
-const lightTheme: DefaultTheme = {
+const darkTheme: DefaultTheme = {
   colors: {
     black: palette.black,
     white: palette.white,
     offWhite: palette.offWhite,
-    primary: palette.niceBlue,
+    primary: palette.black,
     secondary: palette.green,
-    background: palette.greyLightest,
+    background: palette.onyx,
     success: palette.green,
     error: palette.red,
     text: palette.black,
@@ -39,10 +39,10 @@ const lightTheme: DefaultTheme = {
     tuftsBlue: palette.tuftsBlue,
     brownSugar: palette.brownSugar,
     brightLavender: palette.brightLavender,
-    pipe: palette.niceBlue,
-    headingText: palette.black,
+    pipe: palette.white,
+    headingText: palette.white,
   },
   images,
 }
 
-export default lightTheme
+export default darkTheme
