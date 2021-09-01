@@ -1,0 +1,16 @@
+{
+  "appName": "JexpoPrep",
+  "version": "Version: {{version}}",
+  "common": {
+    "math": "Mathematics",
+    "phys": "Physics",
+    "chem": "Chemistry",
+    "subWise": "Subject Wise",
+    "yearWise": "Year Wise",
+    "subjects": "Subjects",
+    "practiceSet": "Practice Set",
+    "prevYearQues": "Previous Year Questions",
+    "greet": "Hi, {{greet}}",
+    "tagLine": "Let's Start Learning"
+  }
+}
