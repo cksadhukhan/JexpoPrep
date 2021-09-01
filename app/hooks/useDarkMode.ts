@@ -8,13 +8,14 @@ export interface DarkMode {
 export const DarkModeContext = createContext<DarkMode | undefined>(undefined)
 
 function useDarkMode() {
-  const postsContext = useContext(DarkModeContext)
-  if (!postsContext) {
+  const darkModeContext = useContext(DarkModeContext)
+  if (!darkModeContext) {
     throw new Error(
       'useDarkMode must be used within the DarkModeContext.Provider',
     )
   }
-  return postsContext
+
+  return darkModeContext
 }
 
 export default useDarkMode
