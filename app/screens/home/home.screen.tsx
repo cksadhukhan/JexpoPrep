@@ -1,259 +1,148 @@
-import React from 'react'
-import {ReactNode} from 'react'
-import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native'
-import Svg, {Path} from 'react-native-svg'
+import React, {useContext} from 'react'
+import {ScrollView, Alert} from 'react-native'
 import {getGreet} from '../../utils'
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import OcticonsIcon from 'react-native-vector-icons/Octicons'
+import {Box, Col, Grid, Heading, Row, Track, Text} from '../../components'
+import {ThemeContext} from 'styled-components/native'
 
 const HomeScreen = () => {
+  const greet = getGreet()
+
+  const theme = useContext(ThemeContext)
+
   return (
-    <View
-      style={{
-        flex: 1,
-      }}>
+    <Grid>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}>
-        <View
+        <Row
+          spaceBetween
+          hCenter
+          vCenter
+          color={theme.colors.primary}
+          height={100}
           style={{
-            alignItems: 'center',
-            height: 100,
-            marginTop: -20,
-            backgroundColor: '#0A81AB',
+            marginTop: -15,
             borderBottomLeftRadius: 20,
             borderBottomRightRadius: 20,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
           }}>
-          <View style={{paddingLeft: 15, flex: 2}}>
+          <Col style={{paddingLeft: 15, flex: 2}}>
             <Text
-              style={{
-                fontSize: 20,
-                color: '#fff',
-                fontFamily: 'Roboto-SemiBold',
-              }}>
-              Hi, {getGreet()}
-            </Text>
+              tx="common.greet"
+              txOptions={{greet}}
+              size={20}
+              color="white"
+              style={{fontFamily: 'Roboto-SemiBold'}}
+            />
             <Text
+              tx="common.tagLine"
+              size={15}
+              color="white"
               style={{
                 marginTop: 5,
-                fontSize: 15,
                 color: '#fff',
                 fontFamily: 'Roboto-Light',
-              }}>
-              Let's Start Learning
-            </Text>
-          </View>
-          <TouchableOpacity
-            style={{
-              height: 40,
-              flexDirection: 'row',
-              paddingVertical: 10,
-              paddingHorizontal: 20,
-              margin: 10,
-              backgroundColor: '#f5f5f5',
-              borderRadius: 15,
-            }}>
-            <OcticonsIcon name="graph" size={16} />
-            <Text>Track Progress</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingLeft: 15,
-            marginTop: 20,
-            marginBottom: 5,
-          }}>
-          <View
-            style={{
-              height: 20,
-              width: 5,
-              marginRight: 5,
-              backgroundColor: '#0A81AB',
-            }}></View>
-          <Text style={{fontSize: 18, fontFamily: 'Roboto-SemiBold'}}>
-            Subjects
-          </Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            padding: 10,
-            justifyContent: 'space-between',
-          }}>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 15,
-              marginHorizontal: 5,
-              height: 100,
-              backgroundColor: '#638cd8',
-            }}>
-            <MaterialCommunityIcon
-              name="calculator-variant"
-              size={24}
-              color="#f5f5f5"
+              }}
             />
-            <Text style={{fontSize: 14, color: '#f5f5f5'}}>Mathematics</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 15,
-              marginHorizontal: 5,
-              height: 100,
-              backgroundColor: '#70c070',
-            }}>
-            <MaterialCommunityIcon name="magnet-on" size={24} color="#f5f5f5" />
-            <Text style={{fontSize: 14, color: '#f5f5f5'}}>Physics</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 15,
-              marginHorizontal: 5,
-              height: 100,
-              backgroundColor: '#d370be',
-            }}>
-            <MaterialCommunityIcon name="test-tube" size={24} color="#f5f5f5" />
-            <Text style={{fontSize: 14, color: '#f5f5f5'}}>Chemistry</Text>
-          </TouchableOpacity>
-        </View>
+          </Col>
+          <Track />
+        </Row>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingLeft: 15,
-            marginTop: 20,
-            marginBottom: 5,
-          }}>
-          <View
-            style={{
-              height: 20,
-              width: 5,
-              marginRight: 5,
-              backgroundColor: '#0A81AB',
-            }}></View>
-          <Text style={{fontSize: 18, fontFamily: 'Roboto-SemiBold'}}>
-            Practice Sets
-          </Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            padding: 10,
-            justifyContent: 'space-between',
-          }}>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 15,
-              marginHorizontal: 5,
-              height: 100,
-              backgroundColor: '#dd6b7b',
-            }}>
-            <MaterialCommunityIcon
-              name="calculator-variant"
-              size={24}
-              color="#f5f5f5"
-            />
-            <Text style={{fontSize: 14, color: '#f5f5f5'}}>Subjects</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 15,
-              marginHorizontal: 5,
-              height: 100,
-              backgroundColor: '#3f72be',
-            }}>
-            <MaterialCommunityIcon name="magnet-on" size={24} color="#f5f5f5" />
-            <Text style={{fontSize: 14, color: '#f5f5f5'}}>Physics</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 15,
-              marginHorizontal: 5,
-              height: 100,
-              backgroundColor: '#e2a865',
-            }}>
-            <MaterialCommunityIcon name="test-tube" size={24} color="#f5f5f5" />
-            <Text style={{fontSize: 14, color: '#f5f5f5'}}>Chemistry</Text>
-          </TouchableOpacity>
-        </View>
+        <Heading label={{tx: 'common.subjects'}} />
 
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingLeft: 15,
-            marginTop: 20,
-            marginBottom: 5,
-          }}>
-          <View
-            style={{
-              height: 20,
-              width: 5,
-              marginRight: 5,
-              backgroundColor: '#0A81AB',
-            }}></View>
-          <Text style={{fontSize: 18, fontFamily: 'Roboto-SemiBold'}}>
-            Previous Year Questions
-          </Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            padding: 10,
-            justifyContent: 'space-between',
-          }}>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 15,
-              marginHorizontal: 5,
-              height: 100,
-              backgroundColor: '#638cd8',
-            }}>
-            <MaterialCommunityIcon name="bookshelf" size={24} color="#f5f5f5" />
-            <Text style={{fontSize: 14, color: '#f5f5f5'}}>Subjects Wise</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 15,
-              marginHorizontal: 5,
-              height: 100,
-              backgroundColor: '#c396d8',
-            }}>
-            <MaterialCommunityIcon name="calendar" size={24} color="#f5f5f5" />
-            <Text style={{fontSize: 14, color: '#f5f5f5'}}>Year Wise</Text>
-          </TouchableOpacity>
-        </View>
+        <Row spaceBetween padding="tiny">
+          <Box
+            color="haveLockBlue"
+            icon={{
+              name: 'calculator-variant',
+              family: 'materialCommunityIcon',
+              size: 24,
+            }}
+            label={{tx: 'common.math'}}
+            onPress={() => Alert.alert('Math')}
+          />
+          <Box
+            color="softGreen"
+            icon={{
+              name: 'magnet-on',
+              family: 'materialCommunityIcon',
+              size: 24,
+            }}
+            label={{tx: 'common.phys'}}
+            onPress={() => Alert.alert('Phys')}
+          />
+          <Box
+            color="skyMagenta"
+            icon={{
+              name: 'test-tube',
+              family: 'materialCommunityIcon',
+              size: 24,
+            }}
+            label={{tx: 'common.chem'}}
+            onPress={() => Alert.alert('Chem')}
+          />
+        </Row>
+
+        <Heading label={{tx: 'common.practiceSet'}} />
+
+        <Row spaceBetween padding="tiny">
+          <Box
+            color="lightCarminePink"
+            icon={{
+              name: 'calculator-variant',
+              family: 'materialCommunityIcon',
+              size: 24,
+            }}
+            label={{tx: 'common.math'}}
+            onPress={() => Alert.alert('Math')}
+          />
+          <Box
+            color="tuftsBlue"
+            icon={{
+              name: 'magnet-on',
+              family: 'materialCommunityIcon',
+              size: 24,
+            }}
+            label={{tx: 'common.phys'}}
+            onPress={() => Alert.alert('Phys')}
+          />
+          <Box
+            color="brownSugar"
+            icon={{
+              name: 'test-tube',
+              family: 'materialCommunityIcon',
+              size: 24,
+            }}
+            label={{tx: 'common.chem'}}
+            onPress={() => Alert.alert('Chem')}
+          />
+        </Row>
+
+        <Heading label={{tx: 'common.prevYearQues'}} />
+
+        <Row spaceBetween padding="tiny">
+          <Box
+            color="haveLockBlue"
+            icon={{
+              name: 'bookshelf',
+              family: 'materialCommunityIcon',
+              size: 24,
+            }}
+            label={{tx: 'common.subWise'}}
+            onPress={() => Alert.alert('Math')}
+          />
+          <Box
+            color="brightLavender"
+            icon={{
+              name: 'calendar',
+              family: 'materialCommunityIcon',
+              size: 24,
+            }}
+            label={{tx: 'common.yearWise'}}
+            onPress={() => Alert.alert('Phys')}
+          />
+        </Row>
       </ScrollView>
-    </View>
+    </Grid>
   )
 }
 
