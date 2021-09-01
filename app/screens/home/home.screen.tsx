@@ -10,7 +10,7 @@ const HomeScreen = () => {
   const theme = useContext(ThemeContext)
 
   return (
-    <Grid>
+    <Grid color={theme.colors.background}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}>

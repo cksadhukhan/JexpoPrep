@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
 import HomeScreen from '../screens/home/home.screen'
 import SettingsScreen from '../screens/settings/settings.screen'
-import {Alert, Button, Image, Text, TouchableOpacity, View} from 'react-native'
+import {Image, Text, TouchableOpacity, View} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import IoniconsIcon from 'react-native-vector-icons/Ionicons'
 import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome5'
 import {
@@ -12,9 +11,9 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
   DrawerItemList,
-  DrawerItem,
 } from '@react-navigation/drawer'
-import {useColorScheme} from 'react-native'
+import useDarkMode from '../hooks/useDarkMode'
+import {ThemeContext} from 'styled-components/native'
 
 const Drawer = createDrawerNavigator()
 
@@ -116,14 +115,17 @@ const MenuContent: React.FunctionComponent<DrawerContentComponentProps> = (
 }
 
 const StackNavigator = ({navigation}: any) => {
-  const isDarkMode = useColorScheme() === 'dark'
+  const {isDarkMode, setIsDarkMode} = useDarkMode()
+
+  const theme = useContext(ThemeContext)
+
   return (
     <Stack.Navigator
       initialRouteName="Home"
       headerMode="screen"
       screenOptions={{
         headerTintColor: 'white',
-        headerStyle: {backgroundColor: '#0A81AB', elevation: 0},
+        headerStyle: {backgroundColor: theme.colors.primary, elevation: 0},
       }}>
       <Stack.Screen
         name="Home"
@@ -131,7 +133,9 @@ const StackNavigator = ({navigation}: any) => {
         options={{
           headerTitle: (props) => <LogoTitle {...props} />,
           headerRight: () => (
-            <TouchableOpacity style={{marginRight: 12}}>
+            <TouchableOpacity
+              style={{marginRight: 12}}
+              onPress={() => setIsDarkMode(!isDarkMode)}>
               {/* <MaterialIcons name="notifications" size={22} color="#fff" /> */}
               {isDarkMode && (
                 <IoniconsIcon name="sunny" size={20} color="#fff" />
@@ -169,11 +173,21 @@ const StackNavigator = ({navigation}: any) => {
 }
 
 const RootNavigator = () => {
+  const theme = useContext(ThemeContext)
+  const {isDarkMode} = useDarkMode()
+
+  const focusedColor = theme.colors.white
+  const unFocusedColor = isDarkMode ? theme.colors.white : theme.colors.black
+
   return (
     <Drawer.Navigator
+      drawerStyle={{
+        backgroundColor: theme.colors.background,
+      }}
       drawerContentOptions={{
-        activeBackgroundColor: '#5cb2d1',
-        activeTintColor: '#ffffff',
+        activeBackgroundColor: theme.colors.primary,
+        activeTintColor: theme.colors.white,
+        inactiveTintColor: theme.colors.headingText,
       }}
       drawerContent={(props) => <MenuContent {...props} />}
       initialRouteName="Home">
@@ -185,12 +199,11 @@ const RootNavigator = () => {
             <IoniconsIcon
               name="home-sharp"
               size={18}
-              color={props.focused ? '#fff' : '#000'}
+              color={props.focused ? focusedColor : unFocusedColor}
             />
           ),
         }}
       />
-      {/* <Drawer.Screen name="Home" component={StackNavigator} /> */}
       <Drawer.Screen
         name="Syllabus"
         component={StackNavigator}
@@ -199,7 +212,7 @@ const RootNavigator = () => {
             <IoniconsIcon
               name="book-sharp"
               size={18}
-              color={props.focused ? '#fff' : '#000'}
+              color={props.focused ? focusedColor : unFocusedColor}
             />
           ),
         }}
@@ -212,7 +225,7 @@ const RootNavigator = () => {
             <FontAwesomeIcons
               name="history"
               size={18}
-              color={props.focused ? '#fff' : '#000'}
+              color={props.focused ? focusedColor : unFocusedColor}
             />
           ),
         }}
@@ -225,7 +238,7 @@ const RootNavigator = () => {
             <IoniconsIcon
               name="stopwatch-sharp"
               size={18}
-              color={props.focused ? '#fff' : '#000'}
+              color={props.focused ? focusedColor : unFocusedColor}
             />
           ),
         }}
@@ -238,7 +251,7 @@ const RootNavigator = () => {
             <IoniconsIcon
               name="trophy-sharp"
               size={18}
-              color={props.focused ? '#fff' : '#000'}
+              color={props.focused ? focusedColor : unFocusedColor}
             />
           ),
         }}
@@ -251,7 +264,7 @@ const RootNavigator = () => {
             <FontAwesomeIcons
               name="building"
               size={18}
-              color={props.focused ? '#fff' : '#000'}
+              color={props.focused ? focusedColor : unFocusedColor}
             />
           ),
         }}
@@ -264,7 +277,7 @@ const RootNavigator = () => {
             <IoniconsIcon
               name="settings-sharp"
               size={18}
-              color={props.focused ? '#fff' : '#000'}
+              color={props.focused ? focusedColor : unFocusedColor}
             />
           ),
         }}

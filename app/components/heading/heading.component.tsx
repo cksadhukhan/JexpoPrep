@@ -18,8 +18,9 @@ export const Heading: React.FunctionComponent<HeadingComponentProps> =
         marginLeft="medium"
         marginTop="medium"
         paddingVertical="small">
-        <Col color={colors.primary} height={20} width={5} />
+        <Col color={colors.pipe} height={20} width={5} />
         <Text
+          color="headingText"
           paddingLeft={5}
           style={{fontSize: 18, fontFamily: 'Roboto-SemiBold'}}
           {...label}
