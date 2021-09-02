@@ -22,6 +22,52 @@ const Drawer = createDrawerNavigator()
 
 const Stack = createStackNavigator()
 
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
+import MathematicsSyllabus from '../screens/syllabus/mathematics.syllabus.screen'
+import PhysicsSyllabus from '../screens/syllabus/physics.syllabus.screen'
+import ChemistrySyllabus from '../screens/syllabus/chemistry.syllabus.screen'
+
+const Tab = createMaterialTopTabNavigator()
+
+const SyllabusTab = () => {
+  const theme = useContext(ThemeContext)
+  return (
+    <Tab.Navigator
+      initialRouteName="MathematicsSyllabus"
+      backBehavior="initialRoute"
+      tabBarOptions={{
+        labelStyle: {
+          fontSize: 12,
+          fontWeight: 'bold',
+          color: theme.colors.white,
+        },
+        style: {backgroundColor: theme.colors.primary},
+        indicatorStyle: {backgroundColor: theme.colors.white},
+      }}>
+      <Tab.Screen
+        name="MathematicsSyllabus"
+        component={MathematicsSyllabus}
+        options={{
+          tabBarLabel: 'Mathematics',
+          tabBarIcon: (props) => (
+            <FontAwesomeIcons name="building" size={18} color={'red'} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="PhysicsSyllabus"
+        component={PhysicsSyllabus}
+        options={{tabBarLabel: 'Physics'}}
+      />
+      <Tab.Screen
+        name="ChemistrySyllabus"
+        component={ChemistrySyllabus}
+        options={{tabBarLabel: 'Chemistry'}}
+      />
+    </Tab.Navigator>
+  )
+}
+
 const LogoTitle = (props: any) => {
   return (
     <View style={{alignItems: 'center'}}>
@@ -223,7 +269,7 @@ const RootNavigator = () => {
       />
       <Drawer.Screen
         name="Syllabus"
-        component={StackNavigator}
+        component={SyllabusTab}
         options={{
           drawerIcon: (props) => (
             <IoniconsIcon

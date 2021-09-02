@@ -16,4 +16,8 @@ export * from './practice-set/practice-set.screen'
 
 export * from './settings/settings.screen'
 
+export * from './syllabus/chemistry.syllabus.screen'
+export * from './syllabus/mathematics.syllabus.screen'
+export * from './syllabus/physics.syllabus.screen'
+
 export * from './track-progress/track-progress.screen'
