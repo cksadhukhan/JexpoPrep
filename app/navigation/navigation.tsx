@@ -2,8 +2,8 @@ import React, {useContext} from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
 import HomeScreen from '../screens/home/home.screen'
 import SettingsScreen from '../screens/settings/settings.screen'
-import {Image, Text, TouchableOpacity, View} from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import {Image, Text, TouchableOpacity, useColorScheme, View} from 'react-native'
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import IoniconsIcon from 'react-native-vector-icons/Ionicons'
 import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome5'
 import {
@@ -14,6 +14,9 @@ import {
 } from '@react-navigation/drawer'
 import useDarkMode from '../hooks/useDarkMode'
 import {ThemeContext} from 'styled-components/native'
+import {Icon} from '../components/icon/icon.component'
+import Notification from '../screens/notification/notification.screen'
+import TrackProgress from '../screens/track-progress/track-progress.screen'
 
 const Drawer = createDrawerNavigator()
 
@@ -135,21 +138,25 @@ const StackNavigator = ({navigation}: any) => {
           headerRight: () => (
             <TouchableOpacity
               style={{marginRight: 12}}
-              onPress={() => setIsDarkMode(!isDarkMode)}>
-              {/* <MaterialIcons name="notifications" size={22} color="#fff" /> */}
-              {isDarkMode && (
-                <IoniconsIcon name="sunny" size={20} color="#fff" />
-              )}
-              {!isDarkMode && (
-                <IoniconsIcon name="moon" size={20} color="#fff" />
-              )}
+              onPress={() => navigation.navigate('Notification')}>
+              <Icon
+                name="notifications"
+                family="materialIcon"
+                color="white"
+                size={22}
+              />
             </TouchableOpacity>
           ),
           headerLeft: () => (
             <TouchableOpacity
               style={{marginLeft: 12}}
               onPress={() => navigation.toggleDrawer()}>
-              <Icon name="menu" size={26} color="#fff" />
+              <Icon
+                name="menu"
+                family="materialCommunityIcon"
+                color="white"
+                size={26}
+              />
             </TouchableOpacity>
           ),
         }}
@@ -162,22 +169,32 @@ const StackNavigator = ({navigation}: any) => {
         }}
       />
       <Stack.Screen
-        name="Settings"
-        component={SettingsScreen}
+        name="Notification"
+        component={Notification}
         options={{
-          gestureEnabled: false,
+          title: 'Notifications',
         }}
       />
+      <Stack.Screen
+        name="TrackProgress"
+        component={TrackProgress}
+        options={{
+          title: 'TrackProgress',
+          headerTitleStyle: {fontSize: 18},
+        }}
+      />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   )
 }
 
 const RootNavigator = () => {
   const theme = useContext(ThemeContext)
-  const {isDarkMode} = useDarkMode()
+  const colorScheme = useColorScheme()
 
   const focusedColor = theme.colors.white
-  const unFocusedColor = isDarkMode ? theme.colors.white : theme.colors.black
+  const unFocusedColor =
+    colorScheme === 'dark' ? theme.colors.white : theme.colors.black
 
   return (
     <Drawer.Navigator

@@ -15,3 +15,5 @@ export * from './notification/notification.screen'
 export * from './practice-set/practice-set.screen'
 
 export * from './settings/settings.screen'
+
+export * from './track-progress/track-progress.screen'

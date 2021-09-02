@@ -3,11 +3,13 @@ import {ScrollView, Alert} from 'react-native'
 import {getGreet} from '../../utils'
 import {Box, Col, Grid, Heading, Row, Track, Text} from '../../components'
 import {ThemeContext} from 'styled-components/native'
+import {useNavigation} from '@react-navigation/native'
 
 const HomeScreen = () => {
   const greet = getGreet()
 
   const theme = useContext(ThemeContext)
+  const navigation = useNavigation()
 
   return (
     <Grid color={theme.colors.background}>
@@ -44,7 +46,7 @@ const HomeScreen = () => {
               }}
             />
           </Col>
-          <Track />
+          <Track onPress={() => navigation.navigate('TrackProgress')} />
         </Row>
 
         <Heading label={{tx: 'common.subjects'}} />
