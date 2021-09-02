@@ -41,6 +41,7 @@ const lightTheme: DefaultTheme = {
     brightLavender: palette.brightLavender,
     pipe: palette.niceBlue,
     headingText: palette.black,
+    notificationBackground: palette.whiteSmoke,
   },
   images,
 }

@@ -30,5 +30,6 @@ export interface Colors {
   brightLavender: string
   pipe: string
   headingText: string
+  notificationBackground: string
 }
 export type ColorTypes = keyof Colors

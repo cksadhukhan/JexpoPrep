@@ -40,7 +40,8 @@ const darkTheme: DefaultTheme = {
     brownSugar: palette.brownSugar,
     brightLavender: palette.brightLavender,
     pipe: palette.white,
-    headingText: palette.white,
+    headingText: palette.whiteSmoke,
+    notificationBackground: palette.black,
   },
   images,
 }
