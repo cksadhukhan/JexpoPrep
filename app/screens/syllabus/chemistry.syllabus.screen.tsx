@@ -20,7 +20,7 @@ const ChemistrySyllabus = () => {
           bold
           size="medium"
           color="headingText"
-          text="Mathematics Syllabus"
+          text="Chemistry Syllabus"
         />
       </Col>
       <ScrollView>
