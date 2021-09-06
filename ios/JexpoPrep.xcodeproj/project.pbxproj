@@ -44,6 +44,10 @@
 		239B81717862453BB1F5B679 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20011FB5E7204749B50B73DF /* Octicons.ttf */; };
 		B0215584F44148D7ABC90902 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DE6F19EE2D24D17BC1F9392 /* SimpleLineIcons.ttf */; };
 		5C8D7E3DB4B34600B0A89563 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA98E815E4CA440DA3DB3454 /* Zocial.ttf */; };
+		BFFA2BDD01A5422B907C33EA /* LiAlinurBihongo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31B06C4BB8304766A65BCC65 /* LiAlinurBihongo.ttf */; };
+		D8FFBE3F2F25408BAAD50D44 /* LiHasanHera.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E627A189C9244CFCBB205F77 /* LiHasanHera.ttf */; };
+		1830DAD0E5E5489EB9C53776 /* LimaBosontoBorno.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B11B49321F4646DF858DAEAE /* LimaBosontoBorno.ttf */; };
+		BABB5C6614AC469DBAC142FD /* ShamimCholontika.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FC52E63280448B7BD422D96 /* ShamimCholontika.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +104,10 @@
 		20011FB5E7204749B50B73DF /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		2DE6F19EE2D24D17BC1F9392 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		DA98E815E4CA440DA3DB3454 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		31B06C4BB8304766A65BCC65 /* LiAlinurBihongo.ttf */ = {isa = PBXFileReference; name = "LiAlinurBihongo.ttf"; path = "../app/assets/fonts/LiAlinurBihongo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E627A189C9244CFCBB205F77 /* LiHasanHera.ttf */ = {isa = PBXFileReference; name = "LiHasanHera.ttf"; path = "../app/assets/fonts/LiHasanHera.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B11B49321F4646DF858DAEAE /* LimaBosontoBorno.ttf */ = {isa = PBXFileReference; name = "LimaBosontoBorno.ttf"; path = "../app/assets/fonts/LimaBosontoBorno.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7FC52E63280448B7BD422D96 /* ShamimCholontika.ttf */ = {isa = PBXFileReference; name = "ShamimCholontika.ttf"; path = "../app/assets/fonts/ShamimCholontika.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +232,10 @@
 				20011FB5E7204749B50B73DF /* Octicons.ttf */,
 				2DE6F19EE2D24D17BC1F9392 /* SimpleLineIcons.ttf */,
 				DA98E815E4CA440DA3DB3454 /* Zocial.ttf */,
+				31B06C4BB8304766A65BCC65 /* LiAlinurBihongo.ttf */,
+				E627A189C9244CFCBB205F77 /* LiHasanHera.ttf */,
+				B11B49321F4646DF858DAEAE /* LimaBosontoBorno.ttf */,
+				7FC52E63280448B7BD422D96 /* ShamimCholontika.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -351,6 +363,10 @@
 				239B81717862453BB1F5B679 /* Octicons.ttf in Resources */,
 				B0215584F44148D7ABC90902 /* SimpleLineIcons.ttf in Resources */,
 				5C8D7E3DB4B34600B0A89563 /* Zocial.ttf in Resources */,
+				BFFA2BDD01A5422B907C33EA /* LiAlinurBihongo.ttf in Resources */,
+				D8FFBE3F2F25408BAAD50D44 /* LiHasanHera.ttf in Resources */,
+				1830DAD0E5E5489EB9C53776 /* LimaBosontoBorno.ttf in Resources */,
+				BABB5C6614AC469DBAC142FD /* ShamimCholontika.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
