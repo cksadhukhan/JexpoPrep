@@ -26,6 +26,8 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import MathematicsSyllabus from '../screens/syllabus/mathematics.syllabus.screen'
 import PhysicsSyllabus from '../screens/syllabus/physics.syllabus.screen'
 import ChemistrySyllabus from '../screens/syllabus/chemistry.syllabus.screen'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import OnBoard from '../screens/onboard/onboard.screen'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -166,11 +168,27 @@ const MenuContent: React.FunctionComponent<DrawerContentComponentProps> = (
 const StackNavigator = ({navigation}: any) => {
   const {isDarkMode, setIsDarkMode} = useDarkMode()
 
+  const [isOnBoarded, setIsOnBoarded] = React.useState<boolean>(false)
+
   const theme = useContext(ThemeContext)
+
+  async function getToken() {
+    try {
+      let onBoardData = await AsyncStorage.getItem('isOnBoarded')
+      setIsOnBoarded(!!onBoardData)
+      console.log(onBoardData)
+    } catch (error) {
+      console.log('Something went wrong', error)
+    }
+  }
+
+  React.useLayoutEffect(() => {
+    getToken()
+  })
 
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName={'Home'}
       headerMode="screen"
       screenOptions={{
         headerTintColor: 'white',
@@ -230,6 +248,11 @@ const StackNavigator = ({navigation}: any) => {
         }}
       />
       <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen
+        name="OnBoard"
+        component={OnBoard}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   )
 }

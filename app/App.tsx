@@ -14,7 +14,6 @@ const App = () => {
 
   React.useEffect(() => {
     SplashScreen.hide()
-    // getToken();
   })
 
   return (
